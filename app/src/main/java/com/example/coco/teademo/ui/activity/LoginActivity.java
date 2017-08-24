@@ -103,8 +103,15 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.mBtn_login:
-                SystemClock.sleep(2000);
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                String yzm = mEd_yzm.getText().toString().trim();
+                if (TextUtils.isEmpty(phone)||TextUtils.isEmpty(yzm)){
+                    Toast.makeText(this, "手机号码或者验证码不能为空", Toast.LENGTH_SHORT).show();
+                }
+                if (!TextUtils.isEmpty(yzm)) {
+                    SMSSDK.submitVerificationCode("86", phone, yzm);
+                    SystemClock.sleep(2000);
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                }
                 break;
         }
     }
