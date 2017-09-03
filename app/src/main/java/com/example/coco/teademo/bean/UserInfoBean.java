@@ -4,6 +4,8 @@ import android.os.Parcel;
 
 /**
  * Created by coco on 2017/8/28.
+ * 用户的所有信息解析bean
+ *
  */
 
 public class UserInfoBean {

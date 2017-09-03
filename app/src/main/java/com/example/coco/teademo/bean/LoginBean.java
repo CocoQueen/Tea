@@ -4,6 +4,8 @@ import android.os.Parcel;
 
 /**
  * Created by coco on 2017/8/28.
+ * 登陆界面的bean
+ *
  */
 
 public class LoginBean {

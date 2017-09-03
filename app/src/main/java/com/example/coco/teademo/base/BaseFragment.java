@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 /**
  * Created by coco on 2017/8/28.
+ * Fragment所继承的基类
+ *    包含了初始化数据和初始化ui界面的方法
  */
 
 public abstract class BaseFragment extends Fragment {

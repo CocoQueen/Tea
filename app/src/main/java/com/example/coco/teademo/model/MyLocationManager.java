@@ -13,6 +13,7 @@ import com.tencent.map.geolocation.TencentLocationRequest;
 
 /**
  * Created by coco on 2017/8/29.
+ * 与腾讯地图定位有关
  */
 
 public class MyLocationManager {

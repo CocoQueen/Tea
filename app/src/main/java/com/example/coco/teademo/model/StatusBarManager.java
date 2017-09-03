@@ -15,6 +15,7 @@ import com.example.coco.teademo.utils.MeasureUtils;
 
 /**
  * Created by coco on 2017/8/29.
+ * 与actionbar状态有关
  */
 
 public class StatusBarManager {

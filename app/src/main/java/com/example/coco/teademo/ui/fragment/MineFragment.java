@@ -29,6 +29,7 @@ import static com.example.coco.teademo.R.id.iv_avatar;
 
 /**
  * Created by coco on 2017/8/28.
+ * 我的界面
  */
 
 public class MineFragment extends BaseFragment implements MineContarct.MineView, View.OnClickListener {
@@ -44,13 +45,18 @@ public class MineFragment extends BaseFragment implements MineContarct.MineView,
 
     @Override
     protected void initDate() {
+        //在view创建完成后调用
         presenter = new MinePresenterImpl(this);
+        //隐藏actionbar
         presenter.hide();
     }
 
     @Override
     protected View initView(LayoutInflater inflater) {
+        //注册eventbus
         EventBus.getDefault().register(this);
+
+        //界面引入
         view = inflater.inflate(R.layout.mine_fragment, null, false);
         activity = (MainActivity) getActivity();
         fl_icon = (FrameLayout) view.findViewById(R.id.fl_icon);
@@ -64,10 +70,12 @@ public class MineFragment extends BaseFragment implements MineContarct.MineView,
         shoucang = (MyView) view.findViewById(R.id.item_shoucang);
         youhuiquan = (MyView) view.findViewById(R.id.item_youhuiquan);
 
+        //头像的监听事件
         fl_icon.setOnClickListener(this);
         return view;
     }
 
+    //当前界面隐藏actionbar
     @Override
     public void hideActionBar() {
         ActionBar actionBar = activity.getActionBar();
@@ -76,16 +84,17 @@ public class MineFragment extends BaseFragment implements MineContarct.MineView,
 
     }
 
+    //登陆成功的数据展示
     @Override
     public void showLoginView(UserInfoBean bean) {
-        String avatar = bean.getAvatar();
-        String nickname = bean.getNickname();
-        String phone = bean.getPhone();
-        String sex = bean.getSex();
-        String xiadanshu1 = bean.getXiadanshu();
-        String shoucangshanghu1 = bean.getShoucangshanghu();
-        String youhuiquan1 = bean.getYouhuiquan();
-        String huiyuanka1 = bean.getHuiyuanka();
+        String avatar = bean.getAvatar();//头像
+        String nickname = bean.getNickname();//昵称
+        String phone = bean.getPhone();//电话
+        String sex = bean.getSex();//性别
+        String xiadanshu1 = bean.getXiadanshu();//订单
+        String shoucangshanghu1 = bean.getShoucangshanghu();//收藏
+        String youhuiquan1 = bean.getYouhuiquan();//优惠券
+        String huiyuanka1 = bean.getHuiyuanka();//会员卡
 
         if (!TextUtils.isEmpty(avatar)) {
             String url = Constant.IMAGE_AVATAR + avatar;
@@ -122,6 +131,7 @@ public class MineFragment extends BaseFragment implements MineContarct.MineView,
         }
     }
 
+    //登陆失败
     @Override
     public void showLoginError() {
         Toast.makeText(activity, "登陆失败", Toast.LENGTH_SHORT).show();
@@ -139,14 +149,17 @@ public class MineFragment extends BaseFragment implements MineContarct.MineView,
                 break;
         }
     }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void loginEvent(UserInfoBean bean) {
         showLoginView(bean);
 
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        EventBus.getDefault().unregister(this);
+        //eventbus的反注册
+        EventBus.getDefault().unregister(this);
     }
 }

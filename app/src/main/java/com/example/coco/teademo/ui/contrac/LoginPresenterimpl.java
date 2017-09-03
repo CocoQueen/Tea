@@ -70,6 +70,7 @@ public class LoginPresenterimpl implements LoginContract.LoginPresenter {
 
     @Override
     public void unRegister() {
+        //取消注册
         SMSSDK.unregisterEventHandler(eventHandler);
     }
 }

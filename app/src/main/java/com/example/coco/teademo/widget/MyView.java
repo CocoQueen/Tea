@@ -16,6 +16,7 @@ import com.example.coco.teademo.R;
 
 /**
  * Created by coco on 2017/8/23.
+ * 自定义的MyView  我的界面中item布局
  */
 
 public class MyView extends FrameLayout {
@@ -33,7 +34,10 @@ public class MyView extends FrameLayout {
 
     public MyView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        //引入布局，初始化界面
         initView();
+
+        //获取attrs中的属性
         int count = attrs.getAttributeCount();
         for (int i = 0; i < count; i++) {
             String attributeName = attrs.getAttributeName(i);
@@ -45,6 +49,7 @@ public class MyView extends FrameLayout {
                 icon = attrs.getAttributeResourceValue(i, R.mipmap.ic_launcher_round);
             }
         }
+        //设置item的内容和图标
         setNameAndIcon(title, icon);
 
     }

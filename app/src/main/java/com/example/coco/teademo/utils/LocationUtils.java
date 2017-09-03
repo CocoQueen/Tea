@@ -18,19 +18,24 @@ import java.util.List;
 
 /**
  * Created by coco on 2017/8/15.
+ *
+ * 腾讯地图定位的工具类
  */
 
 public class LocationUtils{
     private static final String TAG = "LocationUtils";
 
     public static HashMap<String, String> getLL(final Activity activity) {
+        //获取一个定位的manager
         LocationManager manager = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
+        //获取当前可用的定位方式
         List<String> providers = manager.getAllProviders();
         for (String str :
                 providers) {
             Log.e(TAG, "getLL: " + str);
         }
         Criteria criteria = new Criteria();
+        //获取最佳的定位方式
         String bestProvider = manager.getBestProvider(criteria, false);
         Log.e(TAG, "getLL: best" + bestProvider);
 

@@ -2,6 +2,9 @@ package com.example.coco.teademo.bean;
 
 /**
  * Created by coco on 2017/8/28.
+ *
+ * bean数据解析的基类
+ *
  */
 
 public class BaseBean<T> {

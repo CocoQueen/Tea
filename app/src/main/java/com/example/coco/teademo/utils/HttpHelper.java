@@ -24,6 +24,7 @@ import static android.content.ContentValues.TAG;
 
 /**
  * Created by coco on 2017/8/28.
+ * 网络工具类
  */
 
 public class HttpHelper {
@@ -45,6 +46,7 @@ public class HttpHelper {
         return helper;
     }
 
+    //获取首页列表的方法
     public void getShopList(String openId, String location) {
         Observable<HomeShopBean> jinxunashangpu = api.homeShop("jingxuanshanghu", openId, 0, location, 1);
         jinxunashangpu.subscribeOn(Schedulers.io())
@@ -57,7 +59,7 @@ public class HttpHelper {
                     }
                 });
     }
-
+    //获取验证码的方法
     public void getVerifyCode(String phone, long time, String ip, String mac) {
         Observable<BaseBean> verifycode = api.getVerifycode(BSConstant.VERIFY_CODE, phone, ip, mac, time, AppUtil.encryptSign((time - 444) + "", "", phone, ip), "1");
         verifycode.subscribeOn(Schedulers.io())
@@ -69,7 +71,7 @@ public class HttpHelper {
                     }
                 });
     }
-
+    //登陆的方法
     public void login(String phone, String code) {
         Observable<BaseBean<LoginBean>> baseBean = api.login(BSConstant.LOGIN, phone, code, null, null, null, null, null);
         baseBean.subscribeOn(Schedulers.io())

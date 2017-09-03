@@ -15,6 +15,7 @@ import com.example.coco.teademo.ui.contrac.LoginPresenterimpl;
 
 /**
  * Created by coco on 2017/8/24.
+ * 登陆界面
  */
 
 public class LoginActivity extends Activity implements View.OnClickListener, LoginContract.LoginView {

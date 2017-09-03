@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by coco on 2017/8/28.
+ * MD5加密
  */
 
 public class AppUtil {

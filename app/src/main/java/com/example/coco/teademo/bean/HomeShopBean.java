@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by coco on 2017/8/28.
+ * 首页店铺的数据解析bean
  */
 
 public class HomeShopBean {
